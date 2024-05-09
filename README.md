@@ -12,3 +12,7 @@ Készíts "webáruházat" tetszőleges témában. Egy listában tároljuk az obj
 7. ++ Minden termékhez (divhez) tartozik egy gomb, amivel meg tudjuk nézni azt az egyetlen terméket.
 8. A kiemelt termék mellett megjelenik egy bal és egy jobb léptető gomb, amivel léptetni tudjuk a terméket.
 ## Függvények
+1. ***publikusTABLAZAT(lista)***->
+2.***publikuTABLAZATmegjelenit(txt)***->
+3.***rendezes(ADATOK)***->
+3.***initpublikusTABLAZAT(lista)***->
