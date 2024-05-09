@@ -6,10 +6,10 @@ export function rendez(lista,kulcs,rIrany){
 }
 
 export function szuresAr(lista,keresAr) {
-    const szur_lista = lista.filter(function (adat) {
+    const szurt_lista = lista.filter(function (adat) {
         return adat.ar.toString().incudles(keresAr);
         
     });
-    return szur_lista;
+    return szurt_lista;
     
 }

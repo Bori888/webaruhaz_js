@@ -1,10 +1,13 @@
 import { ADATOK } from "./adatok.js";
 import { publikusTABLAZAT, publikuTABLAZATmegjelenit } from "./publikusTablazat.js";
-import { rendez} from "./adatkezelo.js";
+import { rendez,szuresAr} from "./adatkezelo.js";
 
 rendezes(ADATOK);
 initpublikusTABLAZAT(ADATOK);
   
+function init(lista) {
+    let txt =;
+ }
 
 
 function initpublikusTABLAZAT(lista) {
@@ -39,7 +42,22 @@ function rendezes(ADATOK) {
             initpublikusTABLAZAT(ADATOK);
             
         }
+        else if(this.value == "default"){
+            initpublikusTABLAZAT(ADATOK);
+          }
 
     })
+    
+}
+
+function szuresArSzerint() {
+    const szuroElem = $(".kereses_ar");
+    szuroElem.on("keyup",function () {
+        let szoveg = szuroElem.val();
+        init(szuresAr(ADATOK, szoveg));
+
+
+        
+    });
     
 }
