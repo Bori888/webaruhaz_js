@@ -11,7 +11,7 @@ export function publikusTABLAZAT(lista) {
           <p class="card-text">Regisztrációs adó: ${elem.Regisztracios_ado}</p>
           <p class="card-text">Teljes nettó ár: ${elem.Teljes_netto_ar}</p>
           <p class="card-text">Teljes bruttó ár: ${elem.Teljes_brutto_ar}</p>
-          <a href="#" class="btn btn-primary">See Profile</a>
+          <a href="#" class="btn btn-primary">Kosárba</a>
         </div>
       </div>`
 
