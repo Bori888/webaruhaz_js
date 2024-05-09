@@ -1,34 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>webáruhaz</title>
+    <title>Webáruhaz</title>
     <link rel="stylesheet" href="stilus.css">
-</head>
-<body>
-    
-    <div class="card">
-        <div class="l1">
-            <h2>Lamborghini Other Huracán LP 610 AWD Accessori Original Racing</h2>
-            <div class="card" style="width:400px">
-                <img class="card-img-top" src="kepek/1.png" alt="1" style="width:100%">
-                <div class="card-body">
-                    <h4 class="ar">Nettó ár:</h4>
-                    <h4 class="garancia">Garancia:</h4>
-                    <h4 class="szallitas">Szállítás
-                        [Budapest, standard]:</h4>
-                    <h4 class="regado">Regisztrációs adó
-                        :</h4>
-                    <h4 class="teljesar">Teljes nettó ár:</h4>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="main.js"></script>
 
-                    <a href="https://www.webcar.eu/hu-hu/jarmu/lamborghini-other-huracan-lp-610-awd-accessori-original-racing-2018-benzin-automata-sebessegvalto-pL5uTnOYZfx" class="link">link</a>
-                </div>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0)">Link</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <br>
+    </nav>
+
+    <div>
+        <div class="row">
+            <select class="form-select col options">
+                <option value="default">Rendezési szempontok</option>
+                <option value="nevcsokkeno">Név szerint (csökkenő)</option>
+                <option value="nevnovekvo">Név szerint (növekvő)</option>
+                <option value="arcsokkeno">Ár szerint (csökkenő)</option>
+                <option value="arnovekvo">Ár szerint (növekvő)</option>
+            </select>
+            <div class="col">
+                <input type="text" class="form-control kereses_cim" placeholder="Szűrés cím szerint" name="szcim"
+                    id="szcim_pub">
+            </div>
+            <div class="col">
+                <input type="number" class="form-control kereses_ar" placeholder="Szűrés ár szerint" name="ar"
+                    id="ar_pub">
+            </div>
+        </div>
     </div>
-        
-        
+    <br>
+    <div class="kartyak"></div>
+
+
 </body>
+
 </html>
