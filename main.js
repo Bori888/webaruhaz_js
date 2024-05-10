@@ -1,11 +1,15 @@
 import { ADATOK } from "./adatok.js";
 import { publikusTABLAZAT, publikuTABLAZATmegjelenit } from "./publikusTablazat.js";
-import { rendez,szuresAr} from "./adatkezelo.js";
+import { rendez,szuresAr,szuresNev,torol} from "./adatkezelo.js";
 import { adminTablazatLetrehoz, megjelenit } from "./adminTablazat.js";
 
 rendezes(ADATOK);
 initpublikusTABLAZAT(ADATOK);
 init(ADATOK);
+szuresNev(ADATOK);
+szuresArSzerint(ADATOK);
+szuresNevSzerint(ADATOK);
+torol(ADATOK);
   
 function init(lista) {
     let txt = adminTablazatLetrehoz(lista);
@@ -58,10 +62,15 @@ function szuresArSzerint() {
     const szuroElem = $(".kereses_ar");
     szuroElem.on("keyup",function () {
         let szoveg = szuroElem.val();
-        init(szuresAr(ADATOK, szoveg));
-
-
-        
+        init(szuresAr(ADATOK, szoveg));  
     });
     
 }
+
+function szuresNevSzerint() {
+    const szuroElem = $(".kereses_cim");
+    szuroElem.on("keyup", function () {
+      let szoveg = szuroElem.val();
+      init(szuresCim(ADATOK, szoveg));
+    });
+  }

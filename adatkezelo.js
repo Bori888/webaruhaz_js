@@ -13,3 +13,14 @@ export function szuresAr(lista,keresAr) {
     return szurt_lista;
     
 }
+export function szuresNev(lista, keresNev) {
+    const szurt_lista = lista.filter(function (adat) {
+        return adat.Nev.incudles(keresNev)
+        
+    })
+    return szurt_lista
+}
+export function torol(lista, index){
+    lista.splice(index,1)
+    return lista;
+  }
