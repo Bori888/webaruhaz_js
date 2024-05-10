@@ -1,12 +1,16 @@
 import { ADATOK } from "./adatok.js";
 import { publikusTABLAZAT, publikuTABLAZATmegjelenit } from "./publikusTablazat.js";
 import { rendez,szuresAr} from "./adatkezelo.js";
+import { adminTablazatLetrehoz, megjelenit } from "./adminTablazat.js";
 
 rendezes(ADATOK);
 initpublikusTABLAZAT(ADATOK);
+init(ADATOK);
   
 function init(lista) {
-    let txt =;
+    let txt = adminTablazatLetrehoz(lista);
+    adminTablazatLetrehoz(lista);
+    megjelenit(txt);
  }
 
 
