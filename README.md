@@ -19,3 +19,17 @@ Készíts "webáruházat" tetszőleges témában. Egy listában tároljuk az obj
 3.***rendezes(ADATOK)***->
 
 3.***initpublikusTABLAZAT(lista)***->
+
+4.***init(ADATOK)***->
+
+5.***szuresNev(ADATOK)***->
+
+6.***szuresArSzerint(ADATOK)***->
+
+7.***szuresNevSzerint(ADATOK)***->
+
+8.***adminTablazatLetrehoz(lista)***->
+
+8.***torol(ADATOK)***->
+
+8.***megjelenit(txt)***->
