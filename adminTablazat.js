@@ -6,11 +6,11 @@ export function adminTablazatLetrehoz(lista){
     txt += "<tbody>";
     lista.forEach((elem, index) => {
         txt += `<tr class='table-info'>
-            <td id="cim${index}" contentEditable=${elem.Garancia?"true":"false"}>${elem.Nev}</td>
-            <td><img src="${elem.Kep}" alt="kep" width="226" height="170"></td>
-            <td id="ar${index}" contentEditable=${elem.Garancia?"true":"false"}>${elem.Teljes_brutto_ar}</td>
+            <td id="Nev${index}" contentEditable=${elem.Szerkesztheto?"true":"false"}>${elem.Nev}</td>
+            <<td><img src="${elem.Kep}" alt="kep" width="226" height="170"></td>
+            <td id="Ar${index}" contentEditable=${elem.Szerkesztheto?"true":"false"}>${elem.Ar}</td>
             <td><button id="${index}" class="torol">❌</button></td>
-            <td><button id="${index}" class="szerkeszt">${elem.szerkesztheto?"✔️":"✏️"}</button></td>
+            <td><button id="${index}" class="szerkeszt">${elem.Szerkesztheto?"✔️":"✏️"}</button></td>
         </tr>`
     });
     txt += "</tbody>"
