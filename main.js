@@ -13,9 +13,8 @@ torol(ADATOK);
   
 function init(lista) {
     let txt = adminTablazatLetrehoz(lista);
-    adminTablazatLetrehoz(lista);
     megjelenit(txt);
- }
+}
 
 
 function initpublikusTABLAZAT(lista) {
