@@ -1,25 +1,30 @@
 import { ADATOK } from "./adatok.js";
-import { publikusTABLAZAT, publikuTABLAZATmegjelenit } from "./publikusTablazat.js";
-import { rendez,szuresAr,szuresNev,torol} from "./adatkezelo.js";
+import { publikusTablazatLetrehoz, publikusTablazatMegjelenit } from "./publikusTablazat.js";
+import {rendez, szerkeszt, szuresAr, szuresNev, szuresLeiras, torol}  from "./adatkezelo.js";
 import { adminTablazatLetrehoz, megjelenit } from "./adminTablazat.js";
+import { kosarLetrehoz,kosarLetrehoz, kosarMegjelenit } from "./kosar.js";
 
-rendezes(ADATOK);
-initpublikusTABLAZAT(ADATOK);
+let kosarTomb = [];
 init(ADATOK);
-szuresNev(ADATOK);
-szuresArSzerint(ADATOK);
-szuresNevSzerint(ADATOK);
-torol(ADATOK);
-  
-function init(lista) {
-    let txt = adminTablazatLetrehoz(lista);
-    megjelenit(txt);
+szuresArSzerint();
+szuresNevSzerint();
+szuresLeirasSzerint();
+rendezes(ADATOK);
+adatokKonzolraIr();
+
+function initPublikusTablazat(lista){
+  let txtKartya = publikusTablazatLetrehoz(lista);
+  publikusTablazatMegjelenit(txtKartya);
 }
 
-
-function initpublikusTABLAZAT(lista) {
-    let txtKartya = publikusTABLAZAT(lista);
-    publikuTABLAZATmegjelenit(txtKartya);
+function init(lista) {
+  let txt = adminTablazatLetrehoz(lista);
+  adminTablazatLetrehoz(lista);
+  megjelenit(txt);
+  initPublikusTablazat(lista);
+  szerkesztesemeny();
+  torolesemeny();
+  kosarbaRak();
 }
 
 function rendezes(ADATOK) {
@@ -28,29 +33,29 @@ function rendezes(ADATOK) {
         if (this.value == "nevcsokkeno"){
             const lista =rendez(ADATOK,"Nev",-1);
             console.log(lista);
-            initpublikusTABLAZAT(ADATOK);
+            init(lista);
             
         }
         else if (this.value == "nevnovekvo"){
             const lista =rendez(ADATOK,"Nev",1);
             console.log(lista);
-            initpublikusTABLAZAT(ADATOK);
+            init(lista);
             
         }
         else if (this.value == "arcsokkeno"){
             const lista =rendez(ADATOK,"Teljes_brutto_ar",-1);
             console.log(lista);
-            initpublikusTABLAZAT(ADATOK);
+            init(lista);
             
         }
         else if (this.value == "arnovekvo"){
             const lista =rendez(ADATOK,"Teljes_brutto_ar",1);
             console.log(lista);
-            initpublikusTABLAZAT(ADATOK);
+            init(lista);
             
         }
         else if(this.value == "default"){
-            initpublikusTABLAZAT(ADATOK);
+            init(lista);
           }
 
     })
@@ -67,9 +72,94 @@ function szuresArSzerint() {
 }
 
 function szuresNevSzerint() {
-    const szuroElem = $(".kereses_cim");
+    const szuroElem = $(".kereses_nev");
     szuroElem.on("keyup", function () {
       let szoveg = szuroElem.val();
-      init(szuresCim(ADATOK, szoveg));
+      init(szuresNev(ADATOK, szoveg));
     });
+  }
+
+  function szuresLeirasSzerint() {
+    const szuroElem = $(".szleiras");
+    szuroElem.on("keyup", function () {
+      let szoveg = szuroElem.val();
+      init(szuresLeiras(ADATOK, szoveg));
+    });
+  }
+
+  function torolesemeny(){
+    const torolELEM=$(".torol")
+    torolELEM.on("click", function(event){
+      let index = event.target.id;
+      const LISTA = torol(ADATOK, index)
+      init(LISTA)
+    })
+  }
+  
+  export function kosarTorolEsemeny(){
+    const torolELEM=$(".kosarTorol")
+    torolELEM.on("click", function(event){
+      let index = event.target.id;
+      const LISTA = torol(kosarTomb, index)
+      let txtKosar = kosarLetrehoz(kosarTomb);
+      kosarMegjelenit(txtKosar);
+      vegosszegEsemeny();
+    })
+  }
+  
+  function szerkesztesemeny(){
+    const szerkesztELEM = $(".szerkeszt")
+    szerkesztELEM.on("click", function(event){
+      let index = event.target.id;
+      const LISTA = szerkeszt(ADATOK, index)
+      init(LISTA)
+    })
+  }
+  
+  function kosarbaRak(){
+    const GOMB = $('.kosarba')
+    GOMB.on("click", function(event){
+        console.log(event.target.id.replace('pub', ''))
+        let index = event.target.id.replace('pub', '')
+        index = Number(index)
+        let ujElem = ADATOK[index];
+        console.log(index)
+        let voltBenne = false
+        
+        kosarTomb.forEach(elem => {
+          if(elem.cim == ujElem.cim){
+            elem.dbszam++;
+            console.log(ujElem)
+            voltBenne = true;
+          }
+  
+        });
+        if (!voltBenne){
+          ujElem.dbszam = 1;
+          kosarTomb.push(ujElem)
+       }
+  
+       vegosszegEsemeny();
+       let txtKosar = kosarLetrehoz(kosarTomb);
+    
+       kosarMegjelenit(txtKosar);
+    })
+  }
+  
+  function vegosszegEsemeny(){
+    let vegosszeg = 0
+    kosarTomb.forEach(elem =>{
+      vegosszeg += elem.dbszam*elem.ar
+     })
+     const vegosszegkiir = $('.vegosszeg')
+     vegosszegkiir.html("<h4>Végösszeg: " + vegosszeg + " Ft</h4>")
+  }
+  
+  function adatokKonzolraIr(){
+    const szemelyesAdatForm = $('.urlap')
+    szemelyesAdatForm.on("submit", function(event){
+      for (let index = 0; index < event.target.length; index++) {
+        console.log(event.target[index].id, event.target[index].value)
+      }
+    })
   }

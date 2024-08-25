@@ -1,7 +1,7 @@
-export function publikusTABLAZAT(lista) {
+export function publikusTablazatLetrehoz(lista) {
   let txt = "";
   lista.forEach((elem, index) => {
-    txt += `<div class="card" style="width:400px">
+    txt += `<div class="card" style="width:800px">
         <div class="card-body">
           <h4 class="card-title">${elem.Nev}</h4>
           <img class="card-img-top" src="${elem.Kep}" alt="Card image">
@@ -19,7 +19,7 @@ export function publikusTABLAZAT(lista) {
   });
   return txt;
 }
-export function publikuTABLAZATmegjelenit(txt) {
+export function publikusTablazatMegjelenit(txt) {
   const ELEM = $(".kartyak")
   ELEM.html(txt)
 }

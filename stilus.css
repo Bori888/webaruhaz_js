@@ -1,5 +1,7 @@
 .kartyak {
     border: black solid 5px;  /*Fekete keret*/
+    width: 50%;
+    float: left;
 }
 body{
     margin: auto;

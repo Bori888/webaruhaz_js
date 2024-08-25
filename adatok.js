@@ -52,7 +52,7 @@ export const ADATOK = [
     },
     {
         Nev: "Limited Series Sián FKP 37",
-        Kep: "kepek/4.webp",
+        Kep: "kepek/5.webp",
         Bevezetes:"A Limited Series Lamborghini a legexkluzívabb, limitált kiadások, amelyek kis számú és válogatott ügyfél számára alkalmasak. A limitált sorozatú modellek, amelyek valóban a szuperautók legkorszerűbb szintjét képviselik, a Lamborghini legmagasabb szellemiségét fejezik ki minden tekintetben. Valójában a tervezés és a technológia területén elérhető legfejlettebb funkciókkal vannak felszerelve.",
         Teljesitmeny:"819 CV",
         Sebesség:"355  km/h",

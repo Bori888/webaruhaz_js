@@ -1,65 +1,80 @@
 <!DOCTYPE html>
 <html lang="hu">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Webáruhaz Ilyés Borbála</title>
-    <link rel="stylesheet" href="stilus.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="main.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Webáruhaz Ilyés Borbála</title>
+        <link rel="stylesheet" href="stilus.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="main.js"></script>
 
-</head>
+    </head>
 
-<body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
-        <div class="tartalomAdmin">
-            <h1>User felület</h1>
-        
-            <div class="container-fluid">
-                <img src="kepek/lg_logo.png" alt="Logo" width="50px" height="50px">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="mynavbar">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Kezdőlap</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin.html">Admin oldal</a>
-                        </li>
-                        
-                    </ul>
+    <body>
+        <article>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+                <div class="tartalomAdmin">
+                
+                    <div class="container-fluid">
+                        <img src="kepek/lg_logo.png" alt="Logo" width="50px" height="50px">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="mynavbar">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="index.html">Kezdőlap</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="admin.html">Admin oldal</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="szemelyesAdatok.html">Szemályes adatok</a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <br>
+            <div>
+                <div class="row">
+                    <select class="form-select col options">
+                        <option value="default">Rendezési szempontok</option>
+                        <option value="nevcsokkeno">Név szerint (csökkenő)</option>
+                        <option value="nevnovekvo">Név szerint (növekvő)</option>
+                        <option value="arcsokkeno">Ár szerint (csökkenő)</option>
+                        <option value="arnovekvo">Ár szerint (növekvő)</option>
+                    </select>
+                    <div class="col">
+                        <input type="text" class="form-control kereses_Nev" placeholder="Szűrés név szerint" name="sznev"
+                            id="sznev_pub">
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control kereses_ar" placeholder="Szűrés teljes bruttó ár szerint" name="ar"
+                            id="ar_pub">
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
-    <br>
-    <div>
-        <div class="row">
-            <select class="form-select col options">
-                <option value="default">Rendezési szempontok</option>
-                <option value="nevcsokkeno">Név szerint (csökkenő)</option>
-                <option value="nevnovekvo">Név szerint (növekvő)</option>
-                <option value="arcsokkeno">Teljes bruttó ár szerint (csökkenő)</option>
-                <option value="arnovekvo">Teljes bruttó ár szerint (növekvő)</option>
-            </select>
-            <div class="col">
-                <input type="text" class="form-control kereses_cim" placeholder="Szűrés név szerint" name="szcim"
-                    id="szcim_pub">
-            </div>
-            <div class="col">
-                <input type="number" class="form-control kereses_ar" placeholder="Szűrés teljes bruttó ár szerint" name="ar"
-                    id="ar_pub">
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="kartyak"></div>
+            <br>
+            <div class="tartalom row" style="padding: 5px;"></div>
+
+            <div class="kartyak"></div>
+        </article>
 
 
-</body>
+        <aside class=" col-md-4">  
+            <h1>Kosár tartalma</h1>
+            <div class="kosar">
+            </div>
+                
+        <div style='text-align: right;' class='vegosszeg'>
+        </div>
+        </aside>
+    </body>
 
 </html>
