@@ -11,6 +11,7 @@ szuresNevSzerint();
 szuresLeirasSzerint();
 rendezes(ADATOK);
 adatokKonzolraIr();
+initPublikusTablazat(lista);
 
 function initPublikusTablazat(lista){
   let txtKartya = publikusTablazatLetrehoz(lista);
@@ -77,26 +78,26 @@ function szuresNevSzerint() {
       let szoveg = szuroElem.val();
       init(szuresNev(ADATOK, szoveg));
     });
-  }
+}
 
-  function szuresLeirasSzerint() {
+function szuresLeirasSzerint() {
     const szuroElem = $(".szleiras");
     szuroElem.on("keyup", function () {
       let szoveg = szuroElem.val();
       init(szuresLeiras(ADATOK, szoveg));
     });
-  }
+}
 
-  function torolesemeny(){
-    const torolELEM=$(".torol")
+function torolesemeny(){
+    const torolELEM=$(".kartyak")
     torolELEM.on("click", function(event){
       let index = event.target.id;
       const LISTA = torol(ADATOK, index)
       init(LISTA)
     })
-  }
+}
   
-  export function kosarTorolEsemeny(){
+export function kosarTorolEsemeny(){
     const torolELEM=$(".kosarTorol")
     torolELEM.on("click", function(event){
       let index = event.target.id;
@@ -105,18 +106,18 @@ function szuresNevSzerint() {
       kosarMegjelenit(txtKosar);
       vegosszegEsemeny();
     })
-  }
+}
   
-  function szerkesztesemeny(){
+function szerkesztesemeny(){
     const szerkesztELEM = $(".szerkeszt")
     szerkesztELEM.on("click", function(event){
       let index = event.target.id;
       const LISTA = szerkeszt(ADATOK, index)
       init(LISTA)
     })
-  }
+}
   
-  function kosarbaRak(){
+function kosarbaRak(){
     const GOMB = $('.kosarba')
     GOMB.on("click", function(event){
         console.log(event.target.id.replace('pub', ''))
@@ -144,22 +145,22 @@ function szuresNevSzerint() {
     
        kosarMegjelenit(txtKosar);
     })
-  }
+}
   
-  function vegosszegEsemeny(){
+function vegosszegEsemeny(){
     let vegosszeg = 0
     kosarTomb.forEach(elem =>{
       vegosszeg += elem.dbszam*elem.ar
      })
      const vegosszegkiir = $('.vegosszeg')
      vegosszegkiir.html("<h4>Végösszeg: " + vegosszeg + " Ft</h4>")
-  }
+}
   
-  function adatokKonzolraIr(){
+function adatokKonzolraIr(){
     const szemelyesAdatForm = $('.urlap')
     szemelyesAdatForm.on("submit", function(event){
       for (let index = 0; index < event.target.length; index++) {
         console.log(event.target[index].id, event.target[index].value)
       }
     })
-  }
+}
